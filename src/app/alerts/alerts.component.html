@@ -1,0 +1,16 @@
+<div class="alert text-center sticky-top">
+    <div class="p-0 pt-md-5 pb-md-4"></div>
+    <div class="container position-relative">
+        <div class="bg-light px-4 py-2 border shadow position-absolute start-50 translate-middle-x w-50 msg" [class.msg_show]="messageService.messages.length">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="text-start">
+                    <div *ngFor="let message of messageService.messages" [class.badnews]="messageService.type == 'bad'" [class.goodnews]="messageService.type == 'good'">
+                        <i *ngIf="message[0] == 'b'" class='bi bi-x-lg me-2'></i>
+                        <i *ngIf="message[0] == 'g'" class='bi bi-check fs-4'></i> {{message.substring(1)}}
+                    </div>
+                </div>
+                <button class="btn btn-success" (click)="messageService.clear()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

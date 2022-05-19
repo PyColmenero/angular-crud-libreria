@@ -1,0 +1,32 @@
+<div>
+
+    <h2>Libros</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="libros-table">
+            <tr *ngFor="let libro of libros">
+                <td class="">{{libro.id}}</td>
+                <td class="">
+                    <input *ngIf="libroEditarID==libro.id" [(ngModel)]="libro.titulo" type="text" value="{{libro.titulo}}">
+                    <p *ngIf="libroEditarID!=libro.id">{{libro.titulo}}</p>
+                </td>
+                <td class="">
+                    <input *ngIf="libroEditarID==libro.id" [(ngModel)]="libro.autor" type="text" value="{{libro.autor}}">
+                    <p *ngIf="libroEditarID!=libro.id">{{libro.autor}}</p>
+                </td>
+                <td class="">
+                    <button (click)="onDelete(libro.id, libro.titulo)" class="btn btn-danger me-3">Borrar</button>
+                    <button *ngIf="libroEditarID!=libro.id" (click)="onEdit(libro.id)" class="btn btn-success">Editar</button>
+                    <button *ngIf="libroEditarID==libro.id" (click)="onConfirmEdit()" class="btn btn-success">Confirmar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

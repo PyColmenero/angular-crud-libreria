@@ -1,0 +1,20 @@
+<div class="">
+    <div class="border p-3">
+        <h2 class="text-center mb-4">Añadir Libro</h2>
+        <div class="mb-3">
+            <label class="form-label">Título:*</label>
+            <input [(ngModel)]="titulo" type="email" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Autor:*</label>
+            <input [(ngModel)]="autor" type="email" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Descripcción:</label>
+            <textarea [(ngModel)]="descripcion" rows="5" class="form-control"></textarea>
+        </div>
+        <p class="text-muted fs-7 text-end">* obligatorios</p>
+        <button (click)="onSubmit()" class="btn btn-primary">Añadir Libro</button>
+    </div>
+
+</div>
